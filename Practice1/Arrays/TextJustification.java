@@ -3,6 +3,12 @@ package Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * 
+ * Must need to be practiced still not clear
+ * 
+ */
+
 public class TextJustification {
 
     public static List<String> fullJustify(String[] words, int maxWidth) {
@@ -65,6 +71,12 @@ public class TextJustification {
 
         return result;
     }
+
+    //practice
+    // public static List<String> fullJustify(String[] words, int maxWidth) {
+        
+    // }
+
     public static void main(String[] args) {
         String wordsExample1[] = {"What","must","be","acknowledgment","shall","be"};
         int maxWidthExample1 = 16;
