@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //Leetcode problem no 90 subsets 2
+// solution: Backtracking
 
 public class Subsets2 {
     public static List<List<Integer>> subsets(int nums[]){
