@@ -7,6 +7,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+/*
+ * 
+ * TopKFrequentElements
+ * problem no 347 in leetcode
+ * 
+ * algorithm:
+ * 
+ * priority queue or min heap
+ * 
+ * bucket sort
+ * 
+ */
+
 public class TopKFrequentElements {
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
