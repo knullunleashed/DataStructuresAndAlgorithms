@@ -2,9 +2,16 @@ package Heap;
 
 import java.util.PriorityQueue;
 
-public class KthLargestElementInAnArray {
+public class KthLargestIntegerInAnArray {
     public static String kthLargestNumber(String[] nums, int k) {
-        PriorityQueue<String> minHeap = new PriorityQueue<>((a,b) -> Integer.parseInt(a) -  Integer.parseInt(b));
+         // MinHeap comparator: smaller numbers have higher priority
+         PriorityQueue<String> minHeap = new PriorityQueue<>((a, b) -> {
+            if (a.length() != b.length()) {
+                return a.length() - b.length(); // shorter number is smaller
+            } else {
+                return a.compareTo(b); // same length → lexicographic
+            }
+        });
 
         for (String n: nums) {
             minHeap.add(n);
