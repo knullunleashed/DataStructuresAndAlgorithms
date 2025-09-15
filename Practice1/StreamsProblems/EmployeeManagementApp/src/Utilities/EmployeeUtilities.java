@@ -86,5 +86,14 @@ public class EmployeeUtilities {
         return employees.stream()
                 .collect(Collectors.groupingBy(Employee::department, Collectors.mapping(Employee::name, Collectors.toList())));
     }
-    
+
+    /*
+     * Group Employees
+     * By age
+     */
+    public static Map<Integer, List<String>> groupEmployeesByAge(List<Employee> employees){
+        return employees.stream()
+                .collect(Collectors.groupingBy(Employee::age, Collectors.mapping(Employee::name, Collectors.toList())));
+    }
+
 }
