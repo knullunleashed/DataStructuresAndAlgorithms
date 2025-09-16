@@ -89,5 +89,14 @@ public class App {
             System.out.println(age+" --> "+names);
         });
 
+        /*
+        * 
+        * Get total salary spent on all
+        * the employees
+        */
+        
+        System.out.println("\n");
+        System.out.println(EmployeeUtilities.getTotalSalarySpentOnEmployees(employees));
+
     }
 }

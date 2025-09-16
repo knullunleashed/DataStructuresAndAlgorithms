@@ -96,4 +96,16 @@ public class EmployeeUtilities {
                 .collect(Collectors.groupingBy(Employee::age, Collectors.mapping(Employee::name, Collectors.toList())));
     }
 
+    /*
+     * 
+     * Get total salary spent on all
+     * the employees
+     */
+
+    public static double getTotalSalarySpentOnEmployees(List<Employee> employees){
+        return employees.stream()
+                    .map(Employee::salary)
+                    .reduce(0.0, Double::sum);
+    }
+
 }
