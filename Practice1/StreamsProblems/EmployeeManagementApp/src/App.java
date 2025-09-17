@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.List;
 import Models.Employee;
 import Utilities.EmployeeUtilities;
@@ -94,9 +93,38 @@ public class App {
         * Get total salary spent on all
         * the employees
         */
-        
+
         System.out.println("\n");
         System.out.println(EmployeeUtilities.getTotalSalarySpentOnEmployees(employees));
 
+        /*
+        * Highest paid employee per
+        * department
+        * 
+        */
+
+        System.out.println("\n");
+
+        EmployeeUtilities.getHighestPaidEmployeePerDepartment(employees).forEach((key, value) -> {
+            System.out.println(key + " --> "+value);
+        });
+
+        /*
+        * 
+        * Average Salary of Employees Under 30
+        * 
+        */
+        System.out.println("\n");
+        System.out.println(EmployeeUtilities.getAverageSalaryOfEmployeesUnder30(employees));
+
+        /*
+        * 
+        * Rank departments based on total salary expense
+        * , highest first.
+        * 
+        */
+
+        System.out.println("\n");
+        System.out.println(EmployeeUtilities.getDepartmentBasedOnTotalSalaryExpense(employees));
     }
 }

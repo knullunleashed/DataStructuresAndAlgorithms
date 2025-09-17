@@ -1,11 +1,14 @@
 package Utilities;
 
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import Models.Employee;
@@ -106,6 +109,52 @@ public class EmployeeUtilities {
         return employees.stream()
                     .map(Employee::salary)
                     .reduce(0.0, Double::sum);
+    }
+
+    /*
+     * Highest paid employee per
+     * department
+     * 
+     */
+
+     public static Map<String,Employee> getHighestPaidEmployeePerDepartment(List<Employee> employees){
+        return employees.stream()
+                        .collect(Collectors
+                            .groupingBy(Employee::department, Collectors
+                                .collectingAndThen(Collectors
+                                    .maxBy(Comparator
+                                        .comparingDouble(Employee::salary)), Optional::get)));
+     }
+
+    /*
+     * 
+     * Average Salary of Employees Under 30
+     * 
+     */
+
+     public static double getAverageSalaryOfEmployeesUnder30(List<Employee> employees){
+        return employees.stream()
+                .filter(e -> e.age() < 30)
+                .mapToDouble(Employee::salary)
+                .average()
+                .orElse(0.0);
+     }
+
+    /*
+     * 
+     * Rank departments based on total salary expense
+     * , highest first.
+     * 
+     */
+
+    public static Map<String, Double> getDepartmentBasedOnTotalSalaryExpense(List<Employee> employees){
+        return employees.stream()
+                .collect(Collectors
+                .groupingBy(Employee::department, Collectors.summingDouble(Employee::salary)))
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Double>comparingByValue(Comparator.reverseOrder()))
+                .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
 }
