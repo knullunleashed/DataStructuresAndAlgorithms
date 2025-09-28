@@ -126,5 +126,17 @@ public class App {
 
         System.out.println("\n");
         System.out.println(EmployeeUtilities.getDepartmentBasedOnTotalSalaryExpense(employees));
+
+        /*
+        * Get name length of each employee 
+        * and sort them based on their length
+        * in a map
+        * 
+        */
+
+        System.out.println("\n");
+        EmployeeUtilities.getCharacterLengthOfEachEmployeeNameAndSortThemInAscendingOrder(employees).forEach((key,value) -> {
+            System.out.println(key+" --> "+value);
+        });
     }
 }

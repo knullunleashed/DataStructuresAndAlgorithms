@@ -157,4 +157,20 @@ public class EmployeeUtilities {
                 .collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
     }
 
+    /*
+     * Get name length of each employee 
+     * and sort them based on their length
+     * in a map
+     * 
+     */
+
+     public static Map<String, Long> getCharacterLengthOfEachEmployeeNameAndSortThemInAscendingOrder(List<Employee>employees) {
+        return employees.stream()
+            .collect(Collectors.toMap(Employee::name, e ->(long) e.name().length()))
+            .entrySet()
+            .stream()
+            .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldVal, newVal) -> oldVal, LinkedHashMap::new));
+     }
+
 }
